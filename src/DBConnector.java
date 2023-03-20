@@ -3,6 +3,10 @@ import javax.swing.plaf.nimbus.State;
 import javax.xml.transform.Result;
 import java.sql.*;
 
+//  геттеры коннектора и стейтмента для подключения
+
+
+
 public class DBConnector {
 
     private static final String url = "jdbc:MySQL://localhost:3307/zags?characterEncoding=UTF8";
@@ -26,12 +30,18 @@ public class DBConnector {
     }
 
 
-    public Statement getStatement() {
+    public static Connection getConnection() {
+        return con;
+    }
+
+
+
+    public static Statement getStatement() {
         return stmt;
     }
 
 
-    public  ResultSet getResultSet(String sql) {
+    /*public static ResultSet getResultSet(String sql) {
         try {
             return stmt.getResultSet();
         } catch (SQLException sqlEx) {
@@ -39,7 +49,7 @@ public class DBConnector {
         }
 
 
-    }
+    }*/
 
 }
 

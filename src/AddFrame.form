@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="AddFrame">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="1004" height="163"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="ed1f5" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="e720c" class="javax.swing.JLabel" binding="nameLabel">
+            <constraints/>
+            <properties>
+              <text value="Имя"/>
+            </properties>
+          </component>
+          <component id="52c77" class="javax.swing.JTextField" binding="nameField">
+            <constraints/>
+            <properties>
+              <columns value="7"/>
+            </properties>
+          </component>
+          <component id="ea250" class="javax.swing.JLabel" binding="lastnameLabel">
+            <constraints/>
+            <properties>
+              <text value="Фамилия"/>
+            </properties>
+          </component>
+          <component id="b8d63" class="javax.swing.JTextField" binding="lastnameField">
+            <constraints/>
+            <properties>
+              <columns value="7"/>
+            </properties>
+          </component>
+          <component id="e8979" class="javax.swing.JLabel" binding="surnameLabel">
+            <constraints/>
+            <properties>
+              <text value="Отчество"/>
+            </properties>
+          </component>
+          <component id="11da3" class="javax.swing.JTextField" binding="surnameField">
+            <constraints/>
+            <properties>
+              <columns value="7"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="ad3f5" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="ba02" class="javax.swing.JLabel" binding="pass_numberLabel">
+            <constraints/>
+            <properties>
+              <text value="Номер пасспорта"/>
+            </properties>
+          </component>
+          <component id="fc443" class="javax.swing.JTextField" binding="pass_numberField">
+            <constraints/>
+            <properties>
+              <columns value="5"/>
+            </properties>
+          </component>
+          <component id="d1e0b" class="javax.swing.JLabel" binding="numberLabel">
+            <constraints/>
+            <properties>
+              <text value="Моб. номер"/>
+            </properties>
+          </component>
+          <component id="c418e" class="javax.swing.JTextField" binding="numberField">
+            <constraints/>
+            <properties>
+              <columns value="8"/>
+            </properties>
+          </component>
+          <component id="21c7" class="javax.swing.JLabel" binding="pass_serialLabel">
+            <constraints/>
+            <properties>
+              <text value="Серия Пасспорта"/>
+            </properties>
+          </component>
+          <component id="2f4ad" class="javax.swing.JTextField" binding="pass_serialField">
+            <constraints/>
+            <properties>
+              <columns value="2"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="615bc" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="545" height="40"/>
+          </grid>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="b0bd3" class="javax.swing.JLabel" binding="adressLabel">
+            <constraints/>
+            <properties>
+              <text value="Адрес"/>
+            </properties>
+          </component>
+          <component id="2fb6" class="javax.swing.JTextField" binding="adressField">
+            <constraints/>
+            <properties>
+              <columns value="11"/>
+            </properties>
+          </component>
+          <component id="c5e4f" class="javax.swing.JLabel" binding="birthYearLabel">
+            <constraints/>
+            <properties>
+              <text value="Год рождения:"/>
+            </properties>
+          </component>
+          <component id="83c1f" class="javax.swing.JTextField" binding="birthYearField">
+            <constraints/>
+            <properties>
+              <columns value="4"/>
+            </properties>
+          </component>
+          <component id="2e145" class="javax.swing.JLabel" binding="monthBirthLabel">
+            <constraints/>
+            <properties>
+              <text value="Месяц рождения:"/>
+            </properties>
+          </component>
+          <component id="9837" class="javax.swing.JTextField" binding="birthMonthField">
+            <constraints/>
+            <properties>
+              <columns value="2"/>
+            </properties>
+          </component>
+          <component id="56178" class="javax.swing.JLabel" binding="birthDayLabel">
+            <constraints/>
+            <properties>
+              <text value="День рождения:"/>
+            </properties>
+          </component>
+          <component id="e7b11" class="javax.swing.JTextField" binding="birthDayField">
+            <constraints/>
+            <properties>
+              <columns value="2"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="c3a4c" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="88314" class="javax.swing.JButton" binding="addPersonButton">
+            <constraints/>
+            <properties>
+              <text value="Добавить запись"/>
+            </properties>
+          </component>
+          <component id="e94f1" class="javax.swing.JButton" binding="exitButton">
+            <constraints/>
+            <properties>
+              <text value="Отмена"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
