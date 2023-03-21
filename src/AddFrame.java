@@ -3,6 +3,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
 
+// окно добавления записи
+
+
 public class AddFrame extends JFrame {
     private JPanel mainPanel;
     private JTextField nameField;
@@ -35,30 +38,34 @@ public class AddFrame extends JFrame {
         setSize(900,150);
         setResizable(false);
         setVisible(true);
+
         addPersonButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String name = nameField.getText();
-                String last_name = lastnameField.getText();
-                String surname = surnameField.getText();
-                int passport_number = Integer.valueOf(pass_numberField.getText());
-                String passport_serial = pass_serialField.getText();
-                String adress = adressField.getText();
-                Date birth;
-                String number = numberField.getText();
-                String birthS = birthYearField.getText()+"-"+birthMonthField.getText()+"-"+ birthDayField.getText();
-                try {
+                if (pass_numberField.getText().length() != 7 || pass_serialField.getText().length() !=2 || birthYearField.getText().length() != 4 || birthMonthField.getText().length() != 2 || birthDayField.getText().length() != 2)
+                JOptionPane.showMessageDialog(null, "Проверьте значения!");
+                else {
+                    String name = nameField.getText();
+                    String last_name = lastnameField.getText();
+                    String surname = surnameField.getText();
+                    int passport_number = Integer.valueOf(pass_numberField.getText());
+                    String passport_serial = pass_serialField.getText();
+                    String adress = adressField.getText();
+                    Date birth;
+                    String number = numberField.getText();
+                    String birthS = birthYearField.getText() + "-" + birthMonthField.getText() + "-" + birthDayField.getText();
+                    try {
 
-                    birth = java.sql.Date.valueOf(birthS);
-                    if (isMan == true)
-                        DBUpdate.putMan(new Person(name,last_name,surname,passport_number,passport_serial,adress,birth,number));
-                    else DBUpdate.putWoman(new Person(name,last_name,surname,passport_number,passport_serial,adress,birth,number));
-                } catch (Exception ex)
-                {
-                    ex.printStackTrace();
+                        birth = java.sql.Date.valueOf(birthS);
+                        if (isMan == true)
+                            DBUpdate.putMan(new Person(name, last_name, surname, passport_number, passport_serial, adress, birth, number));
+                        else
+                            DBUpdate.putWoman(new Person(name, last_name, surname, passport_number, passport_serial, adress, birth, number));
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                    dispose();
                 }
-                dispose();
-
             }
         });
 

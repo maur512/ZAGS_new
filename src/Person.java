@@ -56,7 +56,7 @@ public class Person {
     }
 
 
-    Vector<String> getStringPerson () {
+    public Vector<String> getStringPerson () {
         Vector<String> vec1 = new Vector<>();
         vec1.add(Integer.toString(id));
         vec1.add(name);
