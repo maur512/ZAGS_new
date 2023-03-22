@@ -54,6 +54,7 @@ public class AddFrame extends JFrame {
                     Date birth;
                     String number = numberField.getText();
                     String birthS = birthYearField.getText() + "-" + birthMonthField.getText() + "-" + birthDayField.getText();
+
                     try {
 
                         birth = java.sql.Date.valueOf(birthS);

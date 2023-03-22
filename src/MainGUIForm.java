@@ -1,9 +1,7 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Vector;
 
@@ -19,17 +17,24 @@ public class MainGUIForm extends JFrame{
                                             "birth",
                                             "phonenum"};
 
-    /*private static final String NAME_COL = "name";
-    private static final String LAST_NAME_COL = "lastname";
-    private static final String SURNAME_COL = "surname";
-    private static final String PASSPORT_NUMBER_COL = "passportnumber";
-    private static final String PASSPORT_SERIAL_COL = "passportser";
-    private static final String ADRESS_COL = "adress";
-    private static final String BIRTH_COL = "birth";
-    private static final String NUMBER_COL = "phonenum";
-    private static final String NUM_COL = "num";
-    private static final String REGISTRY_COL = "registry";
-    private static final String ISTERM_COL = "isterm";*/
+    private static final String[] SOR_COL = {
+                                                    "name",
+                                                    "lastname",
+                                                    "surname",
+                                                    "passportnumber",
+                                                    "passportser",
+                                                    "adress",
+                                                    "birth",
+                                                    "phonenum",
+                                                    "num",
+                                                    "is_terminate",
+                                                    "registry",
+                                                    "id",
+                                                    "vidano",
+                                                    "descript"
+                                                    };
+
+
 
     private JTable mainTable;
     private JPanel mainPanel;
@@ -38,13 +43,18 @@ public class MainGUIForm extends JFrame{
     private JButton showSvidet_o_brakeButton;
     private JButton showSvidet_o_rozdMButton;
     private JButton showSvidet_o_rozd_WButton;
+    private JButton show_SODMButton;
+    private JButton showSODWButton;
 
     MainGUIForm () {
+        super("ЗАГС хелпер");
+        ImageIcon img = new ImageIcon("C:/Projects/Java/ZAGS_new/src/icon.png");
+        setIconImage(img.getImage());
         DefaultTableModel model;
         model = new DefaultTableModel(DBQuiery.getAllpersons(DBQuiery.GET_ALL_MAN_PREPARED_STATEMENT),new Vector<>(Arrays.asList(PERSONS_COL)));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         JMenuBar menuBar = new JMenuBar();
-        menuBar.add(getJMenuTable());
+        menuBar.add(getJMenuPersons());
         setJMenuBar(menuBar);
         mainTable.setModel(model);
         mainTable.repaint();
@@ -79,34 +89,55 @@ public class MainGUIForm extends JFrame{
         showSvidet_o_rozdMButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                DefaultTableModel  model = new DefaultTableModel(DBQuiery.getAllSO(DBQuiery.GET_ALL_SORM_PREPARED_STATEMENT),new Vector<>(Arrays.asList(SOR_COL)));
+                mainTable.setModel(model);
+                mainTable.repaint();
             }
         });
         showSvidet_o_rozd_WButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                DefaultTableModel  model = new DefaultTableModel(DBQuiery.getAllSO(DBQuiery.GET_ALL_SORW_PREPARED_STATEMENT),new Vector<>(Arrays.asList(SOR_COL)));
+                mainTable.setModel(model);
+                mainTable.repaint();
+            }
+        });
+        show_SODMButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DefaultTableModel  model = new DefaultTableModel(DBQuiery.getAllSO(DBQuiery.GET_ALL_SODM_PREPARED_STATEMENT),new Vector<>(Arrays.asList(SOR_COL)));
+                mainTable.setModel(model);
+                mainTable.repaint();
+            }
+        });
+        showSODWButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DefaultTableModel  model = new DefaultTableModel(DBQuiery.getAllSO(DBQuiery.GET_ALL_SODW_PREPARED_STATEMENT),new Vector<>(Arrays.asList(SOR_COL)));
+                mainTable.setModel(model);
+                mainTable.repaint();
             }
         });
 
 // ---------------------------------------------------------------------------------------------
 
 
+
     }
 
 
     // ----------------------------- Верхняя менюшка --------------------------------
-   private JMenu getJMenuTable(){
-        JMenu table = new JMenu("Таблица");
+   private JMenu getJMenuPersons(){
+        JMenu personsMenu = new JMenu("Люди");
         JMenuItem addMan = new JMenuItem("Добавить мужчину");
        JMenuItem addWoman = new JMenuItem("Добавить женщину");
        JMenuItem refreshTable = new JMenuItem("Обновить таблицу");
 
-    table.add(addMan);
-    table.addSeparator();
-    table.add(addWoman);
-       table.addSeparator();
-       table.add(refreshTable);
+    personsMenu.add(addMan);
+    personsMenu.addSeparator();
+    personsMenu.add(addWoman);
+       personsMenu.addSeparator();
+       personsMenu.add(refreshTable);
 
        addMan.addActionListener(new ActionListener() {
            @Override
@@ -129,7 +160,7 @@ public class MainGUIForm extends JFrame{
            }
        });
 
-       return table;
+       return personsMenu;
     }
 
 
