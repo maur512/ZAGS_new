@@ -29,7 +29,6 @@ public class MainGUIForm extends JFrame{
                                                     "num",
                                                     "is_terminate",
                                                     "registry",
-                                                    "id",
                                                     "vidano",
                                                     "descript"
                                                     };
@@ -55,6 +54,7 @@ public class MainGUIForm extends JFrame{
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         JMenuBar menuBar = new JMenuBar();
         menuBar.add(getJMenuPersons());
+        menuBar.add(getJMenuSvidet());
         setJMenuBar(menuBar);
         mainTable.setModel(model);
         mainTable.repaint();
@@ -162,6 +162,72 @@ public class MainGUIForm extends JFrame{
 
        return personsMenu;
     }
+
+    private JMenu getJMenuSvidet(){
+        JMenu personsMenu = new JMenu("Свидетельства");
+        JMenuItem addSORM = new JMenuItem("Добавить свидетельство о рождении М");
+        JMenuItem addSORW = new JMenuItem("Добавить свидетельство о рождении Ж");
+        JMenuItem addSODM = new JMenuItem("Добавить свидетельство о смерти М");
+        JMenuItem addSODW = new JMenuItem("Добавить свидетельство о смерти Ж");
+        JMenuItem addSOB = new JMenuItem("Добавить свидетельство о браке");
+        JMenuItem refreshTable = new JMenuItem("Обновить таблицу");
+
+        personsMenu.add(addSORM);
+        personsMenu.addSeparator();
+        personsMenu.add(addSORW);
+        personsMenu.addSeparator();
+        personsMenu.add(addSODM);
+        personsMenu.addSeparator();
+        personsMenu.add(addSODW);
+        personsMenu.addSeparator();
+        personsMenu.add(addSOB);
+        personsMenu.addSeparator();
+        personsMenu.add(refreshTable);
+
+        addSORM.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AddSvidetFrame svidetFrame = new AddSvidetFrame(AddSvidetFrame.SORM);
+            }
+        });
+        addSORW.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AddSvidetFrame svidetFrame = new AddSvidetFrame(AddSvidetFrame.SORW);
+            }
+        });
+        addSODM.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AddSvidetFrame svidetFrame = new AddSvidetFrame(AddSvidetFrame.SODM);
+            }
+        });
+        addSODW.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AddSvidetFrame svidetFrame = new AddSvidetFrame(AddSvidetFrame.SODW);
+            }
+        });
+        addSOB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        refreshTable.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DefaultTableModel  model = new DefaultTableModel(DBQuiery.getAllpersons(DBQuiery.GET_ALL_MAN_PREPARED_STATEMENT),new Vector<>(Arrays.asList(PERSONS_COL)));
+                mainTable.setModel(model);
+                mainTable.repaint();
+            }
+        });
+
+        return personsMenu;
+    }
+
+
 
 
 

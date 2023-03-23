@@ -18,7 +18,7 @@ public class Person {
     String adress;
     Date birth;
     String number;
-    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+    SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd");
     Person (
             String name,
             String last_name,

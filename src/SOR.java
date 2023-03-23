@@ -1,5 +1,5 @@
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.sql.Date;
 import java.util.Vector;
 
 public class SOR {
@@ -27,19 +27,14 @@ public class SOR {
             String vidano,
             String descript)
         {
+
             this.num = num;
             this.is_terminate = is_terminate;
             this.registry = registry;
             this.vidano = vidano;
             this.descript = descript;
-            person.name = name;
-            person.last_name = last_name;
-            person.surname = surname;
-            person.passport_number = passport_number;
-            person.passport_serial = passport_serial;
-            person.adress = adress;
-            person.birth = birth;
-            person.number = number;
+             person = new Person(name,last_name,surname,passport_number,passport_serial,adress,birth,number);
+
         }
 
         Vector<String> toStringVector() {
